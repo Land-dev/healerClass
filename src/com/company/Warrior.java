@@ -29,13 +29,13 @@ public class Warrior {
     public Warrior(String name, int leveled) {
         warriorName = name;
         level = leveled;
-        maxHealth = 16 * level;
+        maxHealth = 20 * leveled;
         health = maxHealth;
-        attack = 4 * level;
-        defense = 6;
-        magicAttack = 5 * level;
-        magicDefense = 10 * level;
-        agility = 3 * level;
-        wisdom = 12 * level;
+        attack = 10 * leveled;
+        defense = 8 * leveled;
+        magicAttack = 0 * leveled;
+        magicDefense = 4 * leveled;
+        agility = 8 * leveled;
+        wisdom = 2 * leveled;
     }
 }

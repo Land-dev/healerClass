@@ -30,14 +30,14 @@ public class Healer {
     public Healer(String name, int leveled) {
         healerName = name;
         level = leveled;
-        maxHealth = 16 * level;
+        maxHealth = 16 * leveled;
         health = maxHealth;
-        attack = 4 * level;
-        defense = 6;
-        magicAttack = 5 * level;
-        magicDefense = 10 * level;
-        agility = 3 * level;
-        wisdom = 12 * level;
+        attack = 4 * leveled;
+        defense = 6 * leveled;
+        magicAttack = 5 * leveled;
+        magicDefense = 10 * leveled;
+        agility = 3 * leveled;
+        wisdom = 12 * leveled;
     }
 
 
