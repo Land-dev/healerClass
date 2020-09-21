@@ -11,6 +11,7 @@ public class Warrior {
     private int magicDefense;
     private int agility;
     private int wisdom;
+    private int experience;
 
     //creating a new warrior
     public Warrior(String name) {
@@ -37,5 +38,41 @@ public class Warrior {
         magicDefense = 4 * leveled;
         agility = 8 * leveled;
         wisdom = 2 * leveled;
+    }
+
+    public void levelUp() {
+        level++;
+        maxHealth = 20 * level;
+        health = maxHealth;
+        attack = 10 * level;
+        defense = 8 * level;
+        magicAttack = 0 * level;
+        magicDefense = 4 * level;
+        agility = 8 * level;
+        wisdom = 2 * level;
+    }
+
+    public void giveExperience (int exp) {
+        if(exp > 1000)
+            exp = 1000;
+        experience += exp;
+        if (experience >= 1000) {
+            levelUp();
+            experience -= 1000;
+        }
+    }
+
+    @Override
+    public String toString() {
+        String warriorInfo = "";
+        warriorInfo += "Name: " + warriorName + "\n";
+        warriorInfo += "Level " + level + " Warrior\n";
+        warriorInfo += "Current Exp: " + experience + "\n";
+        warriorInfo += health + "/" + maxHealth + " Health\n";
+        warriorInfo += "Attack: " + attack + "  Defense: " + defense + "\n";
+        warriorInfo += "Magic Attack: " + magicAttack + "  Magic Defense: " + magicDefense + "\n";
+        warriorInfo += "Agility: " + agility + "  Wisdom: " + wisdom + "\n\n";
+
+        return warriorInfo;
     }
 }

@@ -9,7 +9,14 @@ public class Main {
         Warrior warrior1 = new Warrior("Joe");
         Warrior warrior2 = new Warrior("Terence");
         Warrior warrior3 = new Warrior("Frank", 5);
+        healer1.levelUp();
+        warrior1.giveExperience(2020);
+        warrior1.giveExperience(600);
+        warrior1.giveExperience(500);
+        healer2.giveExperience(1050);
 
+        System.out.println(healer1);
+        System.out.println(warrior1);
 
     }
 }

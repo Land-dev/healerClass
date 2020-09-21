@@ -11,6 +11,7 @@ public class Healer {
     private int magicDefense;
     private int agility;
     private int wisdom;
+    private int experience;
 
     //creating a new Healer
     public Healer(String name) {
@@ -24,6 +25,7 @@ public class Healer {
         magicDefense = 10;
         agility = 3;
         wisdom = 12;
+        experience = 0;
     }
 
     //higher level healer
@@ -38,7 +40,42 @@ public class Healer {
         magicDefense = 10 * leveled;
         agility = 3 * leveled;
         wisdom = 12 * leveled;
+        experience = 0;
     }
 
+    public void levelUp() {
+        level++;
+        maxHealth = 16 * level;
+        health = maxHealth;
+        attack = 4 * level;
+        defense = 6 * level;
+        magicAttack = 5 * level;
+        magicDefense = 10 * level;
+        agility = 3 * level;
+        wisdom = 12 * level;
+    }
 
+    public void giveExperience (int exp) {
+        if(exp > 1000)
+            exp = 1000;
+        experience += exp;
+        if (experience >= 1000) {
+            levelUp();
+            experience -= 1000;
+        }
+    }
+
+    @Override
+    public String toString() {
+        String healerInfo = "";
+        healerInfo += "Name: " + healerName + "\n";
+        healerInfo += "Level " + level + " Healer\n";
+        healerInfo += "Current Exp: " + experience + "\n";
+        healerInfo += health + "/" + maxHealth + " Health\n";
+        healerInfo += "Attack: " + attack + "  Defense: " + defense + "\n";
+        healerInfo += "Magic Attack: " + magicAttack + "  Magic Defense: " + magicDefense + "\n";
+        healerInfo += "Agility: " + agility + "  Wisdom: " + wisdom + "\n\n";
+
+        return healerInfo;
+    }
 }
